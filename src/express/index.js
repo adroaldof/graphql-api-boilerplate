@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 
-const schema = require('../books/schema');
+const schemas = require('../graphql/schemas');
 
 const app = express();
 
@@ -16,7 +16,7 @@ function api({ port }) {
       return resolve();
     }
 
-    app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+    app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: schemas }));
     app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
     app.listen(port, callback);
