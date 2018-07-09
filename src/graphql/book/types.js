@@ -8,4 +8,18 @@ const Book = gql`
   }
 `;
 
-module.exports = [Book];
+const BookInput = gql`
+  input BookInput {
+    title: String!
+    author: String!
+  }
+`;
+
+const BookUpdateInput = gql`
+  input BookUpdateInput {
+    title: String
+    author: String
+  }
+`;
+
+module.exports = [Book, BookInput, BookUpdateInput];

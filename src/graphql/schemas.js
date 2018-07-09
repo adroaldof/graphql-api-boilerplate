@@ -9,17 +9,27 @@ const Query = gql`
   }
 `;
 
-const SchemaDefinition = gql`
-  schema {
-    query: Query
+const Mutations = gql`
+  type Mutations {
+    ${book.mutations.schema}
   }
 `;
 
-const typeDefs = [Query, SchemaDefinition, ...book.types];
+const SchemaDefinition = gql`
+  schema {
+    query: Query
+    mutation: Mutations
+  }
+`;
+
+const typeDefs = [Query, Mutations, SchemaDefinition, ...book.types];
 
 const resolvers = {
   Query: {
     ...book.queries.resolvers,
+  },
+  Mutations: {
+    ...book.mutations.resolvers,
   },
 };
 
