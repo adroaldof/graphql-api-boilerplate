@@ -7,7 +7,8 @@ function update(id, payload) {
     throw new Error(`Object with id (${id}) not found`);
   }
 
-  return (books[index] = { ...books[index], ...payload });
+  books[index] = { ...books[index], ...payload };
+  return books;
 }
 
 module.exports = update;

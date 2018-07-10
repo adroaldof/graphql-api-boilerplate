@@ -1,4 +1,3 @@
-const books = require('./fake-data');
 const { create, update } = require('./handlers');
 
 const schema = `

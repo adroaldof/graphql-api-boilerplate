@@ -1,5 +1,6 @@
-const books = require('../fake-data');
 const crypto = require('crypto');
+
+const books = require('../fake-data');
 
 async function create(payload) {
   const id = await crypto.randomBytes(20).toString('hex');
