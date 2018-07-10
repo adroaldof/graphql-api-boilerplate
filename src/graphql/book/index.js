@@ -2,10 +2,10 @@ const mutations = require('./mutations');
 const queries = require('./queries');
 const types = require('./types');
 
-const package = {
+const pack = {
   mutations,
   queries,
   types,
 };
 
-module.exports = package;
+module.exports = pack;
