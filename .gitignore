@@ -21,5 +21,7 @@ node_modules/
 
 !.babelrc
 !.editorconfig
+!.eslintignore
+!.eslintrc.js
 !.gitignore
 !.nvmrc
