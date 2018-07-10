@@ -1,4 +1,4 @@
-const create = require('./create');
-const update = require('./update');
+import create from './create';
+import update from './update';
 
-module.exports = { create, update };
+export { create, update };

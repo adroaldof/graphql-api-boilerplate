@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+import express from 'express';
+import bodyParser from 'body-parser';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
-const schemas = require('../graphql/schemas');
+import schemas from '../graphql/schemas';
 
 const app = express();
 

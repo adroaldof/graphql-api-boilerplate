@@ -1,4 +1,4 @@
-const books = require('./fake-data');
+import books from './fake-data';
 
 const schema = `
   books: [Book!]!
@@ -10,4 +10,4 @@ const resolvers = {
   book: (root, { id }) => books.find(book => book.id === id),
 };
 
-module.exports = { schema, resolvers };
+export default { schema, resolvers };

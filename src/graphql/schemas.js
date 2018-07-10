@@ -1,7 +1,7 @@
-const gql = require('graphql-tag');
-const { makeExecutableSchema } = require('graphql-tools');
+import gql from 'graphql-tag';
+import { makeExecutableSchema } from 'graphql-tools';
 
-const book = require('./book');
+import book from './book';
 
 const Query = gql`
   type Query {
@@ -33,4 +33,4 @@ const resolvers = {
   },
 };
 
-module.exports = makeExecutableSchema({ typeDefs, resolvers });
+export default makeExecutableSchema({ typeDefs, resolvers });

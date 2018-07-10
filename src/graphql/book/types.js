@@ -1,4 +1,4 @@
-const gql = require('graphql-tag');
+import gql from 'graphql-tag';
 
 const Book = gql`
   type Book {
@@ -22,4 +22,4 @@ const BookUpdateInput = gql`
   }
 `;
 
-module.exports = [Book, BookInput, BookUpdateInput];
+export default [Book, BookInput, BookUpdateInput];

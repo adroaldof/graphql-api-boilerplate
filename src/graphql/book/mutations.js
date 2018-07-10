@@ -1,4 +1,4 @@
-const { create, update } = require('./handlers');
+import { create, update } from './handlers';
 
 const schema = `
   createBook (input: BookInput!): Book!
@@ -10,4 +10,4 @@ const resolvers = {
   updateBook: (root, { id, input }) => update(id, input),
 };
 
-module.exports = { schema, resolvers };
+export default { schema, resolvers };

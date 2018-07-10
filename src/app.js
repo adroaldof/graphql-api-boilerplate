@@ -1,6 +1,8 @@
-const { hostname, port } = require('./config');
+import configs from './configs';
 
-const api = require('./express');
+import api from './express';
+
+const { hostname, port } = configs;
 
 api({ port })
   .then(() => console.info(`Listen on http://${hostname}:${port}/graphiql`))

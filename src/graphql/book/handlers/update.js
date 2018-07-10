@@ -1,4 +1,4 @@
-const books = require('../fake-data');
+import books from '../fake-data';
 
 function update(id, payload) {
   const index = books.findIndex(book => book.id === id);
@@ -7,8 +7,9 @@ function update(id, payload) {
     throw new Error(`Object with id (${id}) not found`);
   }
 
-  books[index] = { ...books[index], ...payload };
-  return books;
+  const book = { ...books[index], ...payload };
+  books[index] = book;
+  return book;
 }
 
-module.exports = update;
+export default update;

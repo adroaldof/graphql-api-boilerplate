@@ -1,6 +1,6 @@
-const mutations = require('./mutations');
-const queries = require('./queries');
-const types = require('./types');
+import mutations from './mutations';
+import queries from './queries';
+import types from './types';
 
 const pack = {
   mutations,
@@ -8,4 +8,4 @@ const pack = {
   types,
 };
 
-module.exports = pack;
+export default pack;

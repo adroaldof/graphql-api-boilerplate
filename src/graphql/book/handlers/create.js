@@ -1,6 +1,6 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
-const books = require('../fake-data');
+import books from '../fake-data';
 
 async function create(payload) {
   const id = await crypto.randomBytes(20).toString('hex');
