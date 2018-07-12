@@ -3,26 +3,24 @@ import { makeExecutableSchema } from 'graphql-tools';
 
 import book from './book';
 
-const Query = gql`
+export const Query = gql`
   type Query {
     ${book.queries.schema}
   }
 `;
 
-const Mutations = gql`
+export const Mutation = gql`
   type Mutations {
     ${book.mutations.schema}
   }
 `;
 
-const SchemaDefinition = gql`
+export const SchemaDefinition = gql`
   schema {
     query: Query
     mutation: Mutations
   }
 `;
-
-const typeDefs = [Query, Mutations, SchemaDefinition, ...book.types];
 
 const resolvers = {
   Query: {
@@ -33,4 +31,6 @@ const resolvers = {
   },
 };
 
-export default makeExecutableSchema({ typeDefs, resolvers });
+const typeDefs = [Query, Mutation, SchemaDefinition, ...book.types];
+
+export default makeExecutableSchema({ resolvers, typeDefs });
