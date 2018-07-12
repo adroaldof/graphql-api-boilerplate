@@ -17,7 +17,7 @@ export default function api({ port }) {
       return resolve();
     }
 
-    app.use('/graphql', graphqlExpress({ schema: schemas }));
+    app.use('/graphql', graphqlExpress({ schema: schemas, tracing: true, cacheControl: true }));
     app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
     app.listen(port, callback);
