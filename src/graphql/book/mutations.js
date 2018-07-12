@@ -1,4 +1,4 @@
-import { create, update } from './handlers';
+import handlers from './handlers';
 
 const schema = `
   createBook (input: BookInput!): Book!
@@ -6,8 +6,8 @@ const schema = `
 `;
 
 const resolvers = {
-  createBook: (root, { input }) => create(input),
-  updateBook: (root, { id, input }) => update(id, input),
+  createBook: (root, { input }) => handlers.create(input),
+  updateBook: (root, { id, input }) => handlers.update(id, input),
 };
 
 export default { schema, resolvers };

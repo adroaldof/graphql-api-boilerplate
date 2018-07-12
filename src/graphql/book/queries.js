@@ -1,4 +1,4 @@
-import books from './fake-data';
+import handlers from './handlers';
 
 const schema = `
   books: [Book!]!
@@ -6,8 +6,8 @@ const schema = `
 `;
 
 const resolvers = {
-  books: () => books,
-  book: (root, { id }) => books.find(book => book.id === id),
+  books: () => handlers.list(),
+  book: (root, { id }) => handlers.detail(id),
 };
 
 export default { schema, resolvers };

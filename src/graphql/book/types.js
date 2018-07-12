@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const Book = gql`
+export const Book = gql`
   type Book {
     id: String!
     title: String
@@ -8,14 +8,14 @@ const Book = gql`
   }
 `;
 
-const BookInput = gql`
+export const BookInput = gql`
   input BookInput {
     title: String!
     author: String!
   }
 `;
 
-const BookUpdateInput = gql`
+export const BookUpdateInput = gql`
   input BookUpdateInput {
     title: String
     author: String
