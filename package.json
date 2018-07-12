@@ -30,12 +30,12 @@
     ]
   },
   "jest": {
+    "testRegex": "/__tests__/.*\\.test\\.jsx?$",
     "clearMocks": true,
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/app.js",
-      "!src/configs/*",
-      "!src/express/*"
+      "!src/configs/*"
     ],
     "coverageThreshold": {
       "global": {
