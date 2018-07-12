@@ -10,7 +10,7 @@ export const Query = gql`
 `;
 
 export const Mutation = gql`
-  type Mutations {
+  type Mutation {
     ${book.mutations.schema}
   }
 `;
@@ -18,7 +18,7 @@ export const Mutation = gql`
 export const SchemaDefinition = gql`
   schema {
     query: Query
-    mutation: Mutations
+    mutation: Mutation
   }
 `;
 
@@ -26,7 +26,7 @@ const resolvers = {
   Query: {
     ...book.queries.resolvers,
   },
-  Mutations: {
+  Mutation: {
     ...book.mutations.resolvers,
   },
 };
