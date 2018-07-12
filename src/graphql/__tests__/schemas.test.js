@@ -6,7 +6,7 @@ import book from '../book';
 
 jest.mock('graphql-tools', () => ({ makeExecutableSchema: jest.fn() }));
 
-describe.skip('graphql schemas', () => {
+describe('graphql schemas', () => {
   it('should test type definitions', () => {
     expect(makeExecutableSchema).toHaveBeenCalledWith({
       resolvers: {

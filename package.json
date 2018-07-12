@@ -14,7 +14,7 @@
     "start": "nodemon src/app.js --exec babel-node",
     "test": "jest src",
     "test:watch": "jest src --watch",
-    "coverage": "jest --coverage --forceExit",
+    "coverage": "jest --coverage",
     "coverage:watch": "jest --coverage --watch"
   },
   "prettier": {
@@ -31,10 +31,10 @@
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.test\\.jsx?$",
-    "clearMocks": true,
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/app.js",
+      "!**/__tests__/**/*.js",
       "!src/configs/*"
     ],
     "coverageThreshold": {
