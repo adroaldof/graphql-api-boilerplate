@@ -4,6 +4,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import { ApolloEngine } from 'apollo-engine';
 
 import schemas from '../graphql/schemas';
+import auth from '../auth';
 
 export default function api({ port, apolloEngineKey }) {
   return new Promise((resolve, reject) => {
@@ -18,7 +19,18 @@ export default function api({ port, apolloEngineKey }) {
       return resolve();
     }
 
-    expressApp.use('/graphql', graphqlExpress({ schema: schemas, tracing: true, cacheControl: true }));
+    expressApp.use(auth.initialize());
+
+    expressApp.use(
+      '/graphql',
+      graphqlExpress(req => ({
+        schema: schemas,
+        tracing: true,
+        cacheControl: true,
+        context: req,
+      })),
+    );
+
     expressApp.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
     if (apolloEngineKey) {

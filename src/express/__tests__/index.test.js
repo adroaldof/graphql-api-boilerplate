@@ -32,8 +32,14 @@ describe('express server', () => {
   });
 
   it('expect to use graphql express middleware on route /graphql', async () => {
+    const req = {};
     await api(mockedConfig);
-    expect(graphqlExpress.mock.calls[0][0]).toEqual({ schema: schemas, tracing: true, cacheControl: true });
+    expect(graphqlExpress.mock.calls[0][0](req)).toEqual({
+      schema: schemas,
+      tracing: true,
+      cacheControl: true,
+      context: req,
+    });
     expect(mockExpress.use).toHaveBeenCalledWith('/graphql', mockGraphqlExpress);
   });
 
