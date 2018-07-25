@@ -1,6 +1,7 @@
 import gql from 'graphql-tag';
 import { makeExecutableSchema } from 'graphql-tools';
 
+import auth from './auth';
 import book from './book';
 import user from './user';
 
@@ -15,6 +16,7 @@ export const Query = gql`
 
 export const Mutation = gql`
   type Mutation {
+    ${auth.mutations.schema}
     ${book.mutations.schema}
     ${user.mutations.schema}
   }
@@ -33,12 +35,13 @@ const resolvers = {
     ...user.queries.resolvers,
   },
   Mutation: {
+    ...auth.mutations.resolvers,
     ...book.mutations.resolvers,
     ...user.mutations.resolvers,
   },
   ...book.fields.resolvers,
 };
 
-const typeDefs = [Query, Mutation, SchemaDefinition, ...book.types, ...user.types];
+const typeDefs = [Query, Mutation, SchemaDefinition, ...auth.types, ...book.types, ...user.types];
 
 export default makeExecutableSchema({ resolvers, typeDefs, schemaDirectives });
