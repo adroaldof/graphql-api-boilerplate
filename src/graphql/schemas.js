@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import { makeExecutableSchema } from 'graphql-tools';
 
 import book from './book';
+import schemaDirectives from '../directives';
 
 export const Query = gql`
   type Query {
@@ -33,4 +34,4 @@ const resolvers = {
 
 const typeDefs = [Query, Mutation, SchemaDefinition, ...book.types];
 
-export default makeExecutableSchema({ resolvers, typeDefs });
+export default makeExecutableSchema({ resolvers, typeDefs, schemaDirectives });

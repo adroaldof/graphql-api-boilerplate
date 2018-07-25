@@ -3,8 +3,9 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { Query, Mutation, SchemaDefinition } from '../schemas';
 
 import book from '../book';
+import schemaDirectives from '../../directives';
 
-jest.mock('graphql-tools', () => ({ makeExecutableSchema: jest.fn() }));
+jest.mock('graphql-tools', () => ({ makeExecutableSchema: jest.fn(), SchemaDirectiveVisitor: jest.fn() }));
 
 describe('graphql schemas', () => {
   it('should test type definitions', () => {
@@ -18,6 +19,7 @@ describe('graphql schemas', () => {
         },
       },
       typeDefs: [Query, Mutation, SchemaDefinition, ...book.types],
+      schemaDirectives,
     });
   });
 });
