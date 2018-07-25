@@ -5,6 +5,7 @@ export const Book = gql`
     id: String!
     title: String
     author: String
+    name: String @deprecated(reason: "Use 'title' instead. Will be removed on version 2.0.0")
   }
 `;
 

@@ -12,6 +12,7 @@ describe('graphql Book types', () => {
     expect(object.fields).toEqual({
       id: 'String!',
       title: 'String',
+      name: 'String',
       author: 'String',
     });
   });
