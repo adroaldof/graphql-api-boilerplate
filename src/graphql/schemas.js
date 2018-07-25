@@ -30,6 +30,7 @@ const resolvers = {
   Mutation: {
     ...book.mutations.resolvers,
   },
+  ...book.fields.resolvers,
 };
 
 const typeDefs = [Query, Mutation, SchemaDefinition, ...book.types];

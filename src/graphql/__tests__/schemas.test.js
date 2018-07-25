@@ -17,6 +17,7 @@ describe('graphql schemas', () => {
         Mutation: {
           ...book.mutations.resolvers,
         },
+        ...book.fields.resolvers,
       },
       typeDefs: [Query, Mutation, SchemaDefinition, ...book.types],
       schemaDirectives,
