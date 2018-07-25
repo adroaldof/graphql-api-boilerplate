@@ -1,12 +1,12 @@
+import Book from '../Book';
 import queries from '../queries';
-import handlers from '../handlers';
 
-jest.mock('../handlers');
+jest.mock('../Book');
 
 describe('graphql book queries', () => {
   it('call list resolver', async () => {
     await queries.resolvers.books();
-    await expect(handlers.list).toBeCalled();
+    await expect(Book.list).toBeCalled();
   });
 
   it('call detail resolver', async () => {
@@ -14,6 +14,6 @@ describe('graphql book queries', () => {
     const id = '1';
 
     await queries.resolvers.book(root, { id });
-    await expect(handlers.detail).toHaveBeenCalledWith(id);
+    await expect(Book.detail).toHaveBeenCalledWith(id);
   });
 });

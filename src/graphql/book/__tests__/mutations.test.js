@@ -1,7 +1,7 @@
-import handlers from '../handlers';
+import Book from '../Book';
 import mutations from '../mutations';
 
-jest.mock('../handlers');
+jest.mock('../Book');
 
 describe('graphql book mutations', () => {
   const root = {};
@@ -13,7 +13,7 @@ describe('graphql book mutations', () => {
     };
 
     mutations.resolvers.createBook(root, { input });
-    expect(handlers.create).toBeCalledWith(input);
+    expect(Book.create).toBeCalledWith(input);
   });
 
   it('should call update a book', () => {
@@ -21,6 +21,13 @@ describe('graphql book mutations', () => {
     const input = { author: 'Daenerys Targaryen' };
 
     mutations.resolvers.updateBook(root, { id, input });
-    expect(handlers.update).toBeCalledWith(id, input);
+    expect(Book.update).toBeCalledWith(id, input);
+  });
+
+  it('should call remove a book', () => {
+    const id = '1';
+
+    mutations.resolvers.removeBook(root, { id });
+    expect(Book.remove).toBeCalledWith(id);
   });
 });

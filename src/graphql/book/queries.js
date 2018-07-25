@@ -1,4 +1,4 @@
-import handlers from './handlers';
+import Book from './Book';
 
 const schema = `
   books: [Book!]!
@@ -6,8 +6,8 @@ const schema = `
 `;
 
 const resolvers = {
-  books: () => handlers.list(),
-  book: (root, { id }) => handlers.detail(id),
+  books: async () => Book.list(),
+  book: async (root, { id }) => Book.detail(id),
 };
 
 export default { schema, resolvers };
