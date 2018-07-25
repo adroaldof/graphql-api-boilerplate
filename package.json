@@ -35,7 +35,8 @@
       "src/**/*.js",
       "!src/app.js",
       "!**/__tests__/**/*.js",
-      "!src/configs/*"
+      "!src/config/*",
+      "!src/knex/**"
     ],
     "coverageThreshold": {
       "global": {
