@@ -1,15 +1,15 @@
-import express from 'express';
 import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import express from 'express';
 import { ApolloEngine } from 'apollo-engine';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
-import schemas from '../graphql/schemas';
 import auth from '../auth';
+import healthCheck from './health-check';
+import schemas from '../graphql/schemas';
 
 export default function api({ port, apolloEngineKey }) {
   return new Promise((resolve, reject) => {
     const expressApp = express();
-    expressApp.use(bodyParser.json());
 
     function callback(error) {
       if (error) {
@@ -19,6 +19,8 @@ export default function api({ port, apolloEngineKey }) {
       return resolve();
     }
 
+    expressApp.use(bodyParser.json());
+    expressApp.use('/healthz', healthCheck);
     expressApp.use(auth.initialize());
 
     expressApp.use(

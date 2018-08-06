@@ -4,6 +4,7 @@ import { graphqlExpress, graphiqlExpress, mockGraphqlExpress, mockGraphiqlExpres
 import { mockBodyParserJson, mockBodyParserJsonInstance } from 'body-parser';
 
 import api from '..';
+import healthCheck from '../health-check';
 import schemas from '../../graphql/schemas';
 
 describe('express server', () => {
@@ -29,6 +30,11 @@ describe('express server', () => {
     await api(mockedConfig);
     expect(mockBodyParserJson).toHaveBeenCalled();
     expect(mockExpress.use).toHaveBeenCalledWith(mockBodyParserJsonInstance);
+  });
+
+  it('expect to created a /healthz endpoint', async () => {
+    await api(mockedConfig);
+    expect(mockExpress.use).toHaveBeenCalledWith('/healthz', healthCheck);
   });
 
   it('expect to use graphql express middleware on route /graphql', async () => {

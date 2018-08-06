@@ -2,7 +2,6 @@ import Auth from '../Auth';
 import mutations from '../mutations';
 
 jest.mock('../Auth');
-jest.mock('../../Auth');
 
 describe('graphql.auth.mutations.resolvers.login', () => {
   it('Calls authentication.login with the right params', async () => {
