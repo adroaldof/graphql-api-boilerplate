@@ -1,15 +1,17 @@
 const path = require('path');
 
+const connectionData = {
+  charset: process.env.DATABASE_CHARSET || 'utf8',
+  host: process.env.DATABASE_HOST || 'localhost',
+  port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
+  user: process.env.DATABASE_USER || 'postgres',
+  password: process.env.DATABASE_PASSWORD || 'postgres',
+  database: process.env.DATABASE_NAME || 'postgres',
+};
+
 const configs = {
-  client: process.env.DB_CLIENT || 'pg',
-  connection: {
-    charset: process.env.DB_CHARSET || 'utf8',
-    host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT, 10) || 5432,
-    user: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || 'postgres',
-    database: process.env.DB_DATABASE || 'postgres',
-  },
+  client: process.env.DATABASE_CLIENT || 'pg',
+  connection: process.env.DATABASE_URL || connectionData,
   migrations: {
     tableName: 'migrations',
     directory: path.join(__dirname, '../knex/migrations'),
