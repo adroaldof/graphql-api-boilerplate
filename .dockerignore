@@ -17,4 +17,5 @@ node_modules
 # Accept these files
 ###############################################################################
 
+!.babelrc
 !.editorconfig
