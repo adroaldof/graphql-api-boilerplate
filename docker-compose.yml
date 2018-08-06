@@ -13,7 +13,7 @@ services:
 
   api:
     build: .
-    command: 'yarn start'
+    command: 'yarn dev'
     volumes:
       - '.:/usr/src/app'
     ports:

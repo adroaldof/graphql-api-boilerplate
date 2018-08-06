@@ -4,6 +4,7 @@
 
 coverage
 database
+dist
 logs
 node_modules
 
