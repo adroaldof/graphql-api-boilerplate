@@ -15,7 +15,7 @@ describe('Book', () => {
 
     await Book.detail(id);
 
-    expect(detail).toBeCalledWith(Book.tableName, { id });
+    expect(detail).toBeCalledWith(Book.tableName, id);
   });
 
   it('should call create', async () => {

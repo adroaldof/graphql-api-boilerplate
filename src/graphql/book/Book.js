@@ -8,7 +8,7 @@ export default class Book {
   }
 
   static async detail(id) {
-    return detail(this.tableName, { id });
+    return detail(this.tableName, id);
   }
 
   static async create(payload) {
