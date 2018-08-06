@@ -28,4 +28,5 @@ node_modules
 !.eslintignore
 !.eslintrc.js
 !.gitignore
+!.gitlab-ci.yml
 !.nvmrc
