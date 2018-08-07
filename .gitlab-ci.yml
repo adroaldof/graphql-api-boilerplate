@@ -39,3 +39,14 @@ heroku:
     url: https://inlabs-books-api.herokuapp.com
   only:
     - master
+
+aws:
+  stage: deploy
+  environment:
+    name: production
+    url: https://api.inlabs.co
+  image: lwolf/kubectl_deployer:latest
+  script:
+    - /bin/sh scripts/deploy.sh ${CI_REGISTRY_IMAGE} ${CI_COMMIT_SHA} api
+  only:
+    - master
